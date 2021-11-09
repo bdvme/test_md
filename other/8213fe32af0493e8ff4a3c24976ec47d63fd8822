@@ -1,0 +1,36 @@
+*Student: Дмитрий Багрянский*
+
+# Homework
+
+## Lesson 2.3 Git Branching
+
+## Подготовка
+
+Каталог `branching` создан в каталоге `02-git-03-branching`, внутри `./02-git-03-branching/branching` созданы два файла `merge.sh` и `rebase.sh` с одинаковым содержимым:
+```bash
+#!/bin/bash
+# display command line options
+count=1
+for param in "$*"; do
+	echo "\$* Parameter #$count = $param"
+	count=$(( $count + 1 ))
+done
+```
+Затем был сделан commit с описанием `prepare to merge and rebase`.
+
+## Файл `merge.sh`
+
+С помощью команды `git checkout -b git-merge` создал новую ветку `git-merge` и перешел на нее.
+Изменил содержимое файла `merge.sh` на:
+```diff
+@@ -2,7 +2,7 @@
+ # display command line options
+
+ count=1
+- for param in "$*"; do
+-	 echo "\$* Parameter #$count = $param"
++ for param in "$@"; do
++	 echo "\$@ Parameter #$count = $param"
+	 count=$(( $count + 1 ))
+ done
+```
